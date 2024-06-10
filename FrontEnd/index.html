@@ -12,8 +12,21 @@
     />
     <meta name="description" content="" />
     <link rel="stylesheet" href="./assets/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body>
+    <!---- Barre noir ---->
+    <div class="barreN">
+      <i class="fa-regular fa-pen-to-square"></i>
+      <p>Mode édition</p>
+    </div>
+    <!---- Barre noir ---->
     <header>
       <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
       <nav>
@@ -51,85 +64,88 @@
         </article>
       </section>
       <section id="portfolio">
-        <h2>Mes Projets</h2>
+        <!---- Bouton modifier ---->
+        <div class="projets">
+          <h2>Mes Projets</h2>
+          <div id="myBtn" class="projetModifier">
+            <i class="fa-regular fa-pen-to-square"></i>
+            <p>modifier</p>
+          </div>
+        </div>
+        <!---- Bouton modifier ---->
         <!---- filtre catégorie ---->
         <div class="filtres"></div>
+        <!---- filtre catégorie ---->
         <div class="gallery">
-          <!--<figure>
-            <img src="assets/images/abajour-tahina.png" alt="Abajour Tahina" />
-            <figcaption>Abajour Tahina</figcaption>
-          </figure>
-          <figure>
-            <img
-              src="assets/images/appartement-paris-v.png"
-              alt="Appartement Paris V"
-            />
-            <figcaption>Appartement Paris V</figcaption>
-          </figure>
-          <figure>
-            <img
-              src="assets/images/restaurant-sushisen-londres.png"
-              alt="Restaurant Sushisen - Londres"
-            />
-            <figcaption>Restaurant Sushisen - Londres</figcaption>
-          </figure>
-          <figure>
-            <img
-              src="assets/images/la-balisiere.png"
-              alt="Villa “La Balisiere” - Port Louis"
-            />
-            <figcaption>Villa “La Balisiere” - Port Louis</figcaption>
-          </figure>
-          <figure>
-            <img
-              src="assets/images/structures-thermopolis.png"
-              alt="Structures Thermopolis"
-            />
-            <figcaption>Structures Thermopolis</figcaption>
-          </figure>
-          <figure>
-            <img
-              src="assets/images/appartement-paris-x.png"
-              alt="Appartement Paris X"
-            />
-            <figcaption>Appartement Paris X</figcaption>
-          </figure>
-          <figure>
-            <img
-              src="assets/images/le-coteau-cassis.png"
-              alt="Pavillon “Le coteau” - Cassis"
-            />
-            <figcaption>Pavillon “Le coteau” - Cassis</figcaption>
-          </figure>
-          <figure>
-            <img
-              src="assets/images/villa-ferneze.png"
-              alt="Villa Ferneze - Isola d’Elba"
-            />
-            <figcaption>Villa Ferneze - Isola d’Elba</figcaption>
-          </figure>
-          <figure>
-            <img
-              src="assets/images/appartement-paris-xviii.png"
-              alt="Appartement Paris XVIII"
-            />
-            <figcaption>Appartement Paris XVIII</figcaption>
-          </figure>
-          <figure>
-            <img
-              src="assets/images/bar-lullaby-paris.png"
-              alt="Bar “Lullaby” - Paris"
-            />
-            <figcaption>Bar “Lullaby” - Paris</figcaption>
-          </figure>
-          <figure>
-            <img
-              src="assets/images/hotel-first-arte-new-delhi.png"
-              alt="Hotel First Arte - New Delhi"
-            />
-            <figcaption>Hotel First Arte - New Delhi</figcaption>
-          </figure>-->
+          <!-- <figure>
+				<img src="assets/images/abajour-tahina.png" alt="Abajour Tahina">
+				<figcaption>Abajour Tahina</figcaption>
+			</figure>-->
         </div>
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+          <!---- Modal content ---->
+          <div class="modal-GaleriePhoto">
+            <!---- Modal header ---->
+            <div class="modal-header">
+              <span class="return">&larr;</span>
+              <span class="close">&times;</span>
+            </div>
+            <div class="modal-vueGalerie">
+              <p>Galerie photo</p>
+              <div class="vueGalerie-Content">
+                <!-- Les images seront ici -->
+              </div>
+              <div class="modal-add-photo">
+                <div class="line"></div>
+                <button class="filter filtermodal">Ajouter une photo</button>
+              </div>
+            </div>
+            <div class="modal-vueAjout">
+              <p>Ajout photo</p>
+              <div class="upload-container">
+                <i class="fa-image fa-regular"></i>
+                <label for="file-upload" class="upload-label"
+                  >+ Ajouter photo</label
+                >
+                <input
+                  type="file"
+                  id="file-upload"
+                  name="image"
+                  accept="image/png, image/jpeg"
+                />
+                <span class="file-details">jpg, png : 4mo max</span>
+                <img
+                  id="image-preview"
+                  src="#"
+                  alt="Image preview"
+                  style="display: none"
+                />
+                <button type="button" id="remove-image">
+                  Annuler l'image
+                </button>
+              </div>
+
+              <form action="#" method="post" class="form-add-photo">
+                <label for="title" class="form-label">Titre</label>
+                <input type="text" id="title" name="title" class="form-field" />
+                <label for="category" class="form-label">Catégorie</label>
+                <select
+                  id="category"
+                  name="category"
+                  class="form-field"
+                ></select>
+                <div class="modal-add-photo">
+                  <div class="line"></div>
+                  <button type="submit" class="form-filterValid filter filtermodal">
+                    Valider
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- The Modal -->
       </section>
       <section id="contact">
         <h2>Contact</h2>
@@ -154,5 +170,6 @@
       </nav>
     </footer>
     <script src="./assets/script/index.js"></script>
+    <script src="./assets/script/modale.js"></script>
   </body>
 </html>
